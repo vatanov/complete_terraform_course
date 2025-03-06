@@ -1,0 +1,9 @@
+terraform destroy -auto-approve     # Use auto-approve to avoid 'yes' confirmation
+terraform apply -auto-approve  
+terraform plan         
+terraform init                      # Download providers, your modules in working directory .terraform
+terraform init -upgrade             # Initialize Terraform and upgrade elenents, for eg, when provider ver is changed
+terraform validate                  # Find errors in code
+tflint                              # More advanced way to find errors in code (installed separately)
+tflint --recursive 
+terraform fmt --recursive           # Auto formatting code
