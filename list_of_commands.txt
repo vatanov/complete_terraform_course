@@ -1,9 +1,36 @@
-terraform destroy -auto-approve     # Use auto-approve to avoid 'yes' confirmation
-terraform apply -auto-approve  
-terraform plan         
+### Main commands ###
 terraform init                      # Download providers, your modules in working directory .terraform
 terraform init -upgrade             # Initialize Terraform and upgrade elenents, for eg, when provider ver is changed
+terraform plan         
+terraform apply -auto-approve  
+terraform destroy -auto-approve     # Use auto-approve to avoid 'yes' confirmation
+
+
+### Verify of format code ###
 terraform validate                  # Find errors in code
 tflint                              # More advanced way to find errors in code (installed separately)
 tflint --recursive 
 terraform fmt --recursive           # Auto formatting code
+
+
+### terraform.tfstate file ###
+Terraform's representation of the world
+JSON file containing information about every resource and data object
+Contains Sensitive Info (e.g. database password)
+Can be stored locally or remotely
+
+Can be stored:
+    - as local backend - in the project directory locally on computer
+    Pros:
+        - Simple to get started!
+    Cons:
+        - Sensitive values in plain text
+        - Uncollaborative
+        - Manual
+    - stored on remore server (on Terraform Cloud, Amazon S3, Google Cloud etc)
+    Pros:
+        - Sensitive data encrypted
+        - Collaboration possible
+        - Automation possible
+    Cons:
+        - Increased complexity
